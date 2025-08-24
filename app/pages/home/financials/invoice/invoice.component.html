@@ -1,0 +1,50 @@
+<div class="invoice-container">
+
+  <!-- Top Bar -->
+  <div class="invoice-header">
+    <h2>Invoice</h2>
+    <button mat-button color="primary" (click)="goBack()" class="back-button">
+      <mat-icon>arrow_back</mat-icon> Back to Financials
+    </button>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Loading spinner -->
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+
+  <!-- Table shown only when data is available -->
+  <table *ngIf="!isLoading && invoices.length > 0" class="invoice-table">
+    <thead>
+      <tr>
+        <th>Invoice Number</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let invoice of invoices">
+        <td>{{ invoice.Vbeln }}</td>
+        <td>{{ invoice.Fkdat }}</td>
+        <td>{{ invoice.Netwr }}</td>
+        <td>{{ invoice.Waerk }}</td>
+        <td>
+          <button mat-icon-button color="primary" (click)="downloadInvoice(invoice)" title="Download PDF">
+            <mat-icon>download</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- No invoices message shown only after loading completes -->
+  <div *ngIf="!isLoading && invoices.length === 0" class="no-data">
+    No invoices found.
+  </div>
+
+</div>

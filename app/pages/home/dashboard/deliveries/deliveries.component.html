@@ -1,0 +1,37 @@
+<div class="deliveries-header">
+  <h2>List of Deliveries</h2>
+  <button mat-raised-button class="back-btn" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon> Back to Dashboard
+  </button>
+</div>
+
+<mat-card class="deliveries-card" *ngIf="!loading && delivery.length > 0">
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Delivery No</th>
+          <th>Date</th>
+          <th>Material</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of delivery">
+          <td>{{ item.Vbeln || 'N/A' }}</td>
+          <td>{{ item.Erdat || 'N/A' }}</td>
+          <td>{{ item.Matnr || 'N/A' }}</td>
+          <td>{{ item.Arktx || 'N/A' }}</td>
+          <td class="center">{{ item.Kwmeng || 'N/A' }}</td>
+          <td class="center">{{ item.Meins || 'N/A' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-card>
+
+<div *ngIf="!loading && delivery.length === 0" class="no-data">No Entries.</div>
+<div *ngIf="loading" class="loading">Loading...</div>
+<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>

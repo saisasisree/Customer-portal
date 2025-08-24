@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #f3e5f5; // Light violet
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.financials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 2rem;
+    color: #6a1b9a;
+    margin: 0;
+  }
+
+  .back-btn {
+    background-color: #6a1b9a;
+    color: white;
+    font-weight: 500;
+  }
+}
+
+.financials-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.card {
+  background: #ede7f6;
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.03);
+    background: #e1bee7;
+  }
+
+  h2 {
+    margin: 0.5rem 0 0.2rem;
+    color: #4a148c;
+  }
+
+  p {
+    margin: 0;
+    color: #5e35b1;
+  }
+
+  .card-icon {
+    font-size: 36px;
+    color: #6a1b9a;
+  }
+}

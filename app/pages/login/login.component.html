@@ -1,0 +1,32 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <h2 class="login-title">
+      <mat-icon>lock</mat-icon>
+      Customer Portal Login
+    </h2>
+
+    <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+      <!-- Customer ID -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Customer ID</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput type="text" name="customerId" [(ngModel)]="customerId" required />
+      </mat-form-field>
+
+      <!-- Passcode -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Passcode</mat-label>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" name="passcode" [(ngModel)]="passcode" required />
+        <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <!-- Login Button -->
+      <button mat-raised-button color="primary" type="submit" class="full-width">
+        Login
+      </button>
+    </form>
+  </mat-card>
+</div>

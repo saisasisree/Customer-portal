@@ -1,0 +1,38 @@
+<div class="inquiry-header">
+  <h2>Inquiry</h2>
+  <button mat-raised-button color="primary" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon> Back to Dashboard
+  </button>
+</div>
+
+<mat-card class="inquiry-card" *ngIf="!loading && inquiries.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Material</th>
+        <th>Material No</th>
+        <th>Quantity</th>
+        <th>Currency</th>
+        <th>Net Value</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inquiry of inquiries">
+        <td>{{ inquiry.Arktx || 'N/A' }}</td>
+        <td>{{ inquiry.Matnr || 'N/A' }}</td>
+        <td>{{ inquiry.Kwmeng || 'N/A' }}</td>
+        <td>{{ inquiry.Waerk || 'N/A' }}</td>
+        <td>{{ inquiry.Netwr || 'N/A' }}</td>
+        <td>{{ inquiry.Erdat || 'N/A' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>
+
+<div *ngIf="!loading && inquiries.length === 0" class="no-entries">
+  No Entries.
+</div>
+
+<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+<div *ngIf="loading" class="loading">Loading...</div>

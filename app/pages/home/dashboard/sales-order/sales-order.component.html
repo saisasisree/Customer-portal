@@ -1,0 +1,42 @@
+<div class="sales-header">
+  <h2>Sales Order Data</h2>
+  <button mat-raised-button color="primary" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon> Back to Dashboard
+  </button>
+</div>
+
+<mat-card class="sales-order-card" *ngIf="!loading && salesOrders.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Sales Order #</th>
+        <th>Date</th>
+        <th>Material No</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Unit</th>
+        <th>Net Amount</th>
+        <th>Currency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of salesOrders">
+        <td>{{ order.Vbeln || 'N/A' }}</td>
+        <td>{{ order.Erdat || 'N/A' }}</td>
+        <td>{{ order.Matnr || 'N/A' }}</td>
+        <td>{{ order.Arktx || 'N/A' }}</td>
+        <td>{{ order.Kwmeng || 'N/A' }}</td>
+        <td>{{ order.Meins || 'N/A' }}</td>
+        <td>{{ order.Netwr || 'N/A' }}</td>
+        <td>{{ order.Waerk || 'N/A' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>
+
+<div *ngIf="!loading && salesOrders.length === 0" class="no-data">
+  No Entries.
+</div>
+
+<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+<div *ngIf="loading" class="loading">Loading...</div>

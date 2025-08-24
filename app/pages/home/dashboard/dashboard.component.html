@@ -1,0 +1,36 @@
+<div class="dashboard-wrapper">
+
+  <!-- Header -->
+  <div class="dashboard-header">
+    <h1>Customer Dashboard</h1>
+    <button mat-raised-button color="primary" (click)="goHome()">
+      <mat-icon>arrow_back</mat-icon>
+      Back to Home
+    </button>
+  </div>
+
+  <!-- Cards Section -->
+  <div class="dashboard-container">
+    <mat-card class="dashboard-card" (click)="goToInquiry()">
+      <mat-icon class="dashboard-icon">question_answer</mat-icon>
+      <h2>Inquiry</h2>
+      <p>Check customer inquiries</p>
+    </mat-card>
+
+    <mat-card class="dashboard-card" (click)="goToSalesOrder()">
+      <mat-icon class="dashboard-icon">shopping_cart</mat-icon>
+      <h2>Sales Order Data</h2>
+      <p>View sales order details</p>
+    </mat-card>
+
+    <mat-card class="dashboard-card" (click)="goToDeliveries()">
+      <mat-icon class="dashboard-icon">local_shipping</mat-icon>
+      <h2>List of Deliveries</h2>
+      <p>See all delivery records</p>
+    </mat-card>
+  </div>
+
+  <!-- Sub-routes -->
+  <router-outlet></router-outlet>
+
+</div>

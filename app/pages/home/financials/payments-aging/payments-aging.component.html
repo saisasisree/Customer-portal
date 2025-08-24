@@ -1,0 +1,50 @@
+<div class="payments-container">
+
+  <!-- Header -->
+  <div class="header">
+    <h2>Payments and Aging</h2>
+    <button mat-button color="primary" class="back-button" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon> Back to Financials
+    </button>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    Loading...
+  </div>
+
+  <!-- Table -->
+  <table *ngIf="!isLoading && payments.length > 0" class="payments-table">
+    <thead>
+      <tr>
+        <th>Invoice #</th>
+        <th>Invoice Date</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Due Date</th>
+        <th>Aging (Days)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of payments">
+        <td>{{ item.Vbeln || 'N/A' }}</td>
+        <td>{{ item.Fkdat || 'N/A' }}</td>
+        <td>{{ item.Netwr || 'N/A' }}</td>
+        <td>{{ item.Waerk || 'N/A' }}</td>
+        <td>{{ item.Dats || 'N/A' }}</td>
+        <td>{{ item.Aging || 'N/A' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- No data -->
+  <div *ngIf="!isLoading && payments.length === 0" class="no-data">
+    No payment or aging records found.
+  </div>
+
+</div>

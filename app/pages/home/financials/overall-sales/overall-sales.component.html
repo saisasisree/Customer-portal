@@ -1,0 +1,35 @@
+<div class="overall-sales-container">
+
+  <div class="header">
+    <h2>Overall Sales</h2>
+    <button mat-button color="primary" class="back-button" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon> Back to Financials
+    </button>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    Loading...
+  </div>
+
+  <!-- Content -->
+  <div *ngIf="!isLoading && summary; else noData">
+    <mat-card class="summary-card">
+      <h3>Overall Sales Summary</h3>
+      <p><strong>Total Orders:</strong> {{ summary.TotalCount || 'N/A' }}</p>
+      <p><strong>Total Amount:</strong> {{ summary.TotalAmount || 'N/A' }} {{ summary.Currency || 'N/A' }}</p>
+    </mat-card>
+  </div>
+
+  <ng-template #noData>
+    <div class="no-data">
+      No overall sales data available.
+    </div>
+  </ng-template>
+
+</div>

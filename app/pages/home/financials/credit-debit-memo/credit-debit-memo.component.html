@@ -1,0 +1,50 @@
+<div class="memo-container">
+
+  <!-- Header -->
+  <div class="header">
+    <h2>Credit/Debit Memo</h2>
+    <button mat-button color="primary" class="back-button" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon> Back to Financials
+    </button>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    Loading...
+  </div>
+
+  <!-- Table -->
+  <table *ngIf="!isLoading && memos.length > 0" class="memo-table">
+    <thead>
+      <tr>
+        <th>Memo Number</th>
+        <th>Type</th>
+        <th>Billing Type</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Currency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let memo of memos">
+        <td>{{ memo.Vbeln || 'N/A' }}</td>
+        <td>{{ memo.MemoType || 'N/A' }}</td>
+        <td>{{ memo.Fkart || 'N/A' }}</td>
+        <td>{{ memo.Fkdat || 'N/A' }}</td>
+        <td>{{ memo.Netwr || 'N/A' }}</td>
+        <td>{{ memo.Waerk || 'N/A' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- No data -->
+  <div *ngIf="!isLoading && memos.length === 0" class="no-data">
+    No credit/debit memos found.
+  </div>
+
+</div>

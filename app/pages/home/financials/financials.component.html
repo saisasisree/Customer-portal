@@ -1,0 +1,34 @@
+<div class="financials-header">
+  <h2>Financial Sheets</h2>
+  <button mat-raised-button class="back-btn" (click)="goHome()">
+    <mat-icon>arrow_back</mat-icon> Back to Home
+  </button>
+</div>
+
+<div class="financials-container">
+  <div class="card" (click)="goTo('invoice')">
+    <mat-icon class="card-icon">receipt</mat-icon>
+    <h2>Invoice</h2>
+    <p>Download invoice</p>
+  </div>
+
+  <div class="card" (click)="goTo('payments')">
+    <mat-icon class="card-icon">payments</mat-icon>
+    <h2>Payments & Agings</h2>
+    <p>Check payments and aging summary</p>
+  </div>
+
+  <div class="card" (click)="goTo('credit-debit')">
+    <mat-icon class="card-icon">swap_horiz</mat-icon>
+    <h2>Credit/Debit Memo</h2>
+    <p>Track memo transactions</p>
+  </div>
+
+  <div class="card" (click)="goTo('overall-sales')">
+    <mat-icon class="card-icon">analytics</mat-icon>
+    <h2>Overall Sales</h2>
+    <p>Analyze complete sales overview</p>
+  </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->

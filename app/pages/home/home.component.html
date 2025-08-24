@@ -1,0 +1,41 @@
+<!-- home.component.html -->
+<div class="top-bar" *ngIf="showCards">
+  <div class="title">Home</div>
+  <div class="action-buttons">
+    <button mat-raised-button color="primary" (click)="navigateTo('profile')">
+      <mat-icon>person</mat-icon> Profile
+    </button>
+    <button mat-raised-button color="warn" (click)="logout()">
+      <mat-icon>logout</mat-icon> Logout
+    </button>
+  </div>
+</div>
+
+<div *ngIf="showCards" class="home-container">
+  <mat-card class="home-card" (click)="navigateTo('dashboard')">
+    <div class="card-header">
+      <mat-icon class="card-icon">dashboard</mat-icon>
+      <h2>Customer Dashboard</h2>
+    </div>
+    <ol>
+      <li>Inquiry</li>
+      <li>Sales Order Data</li>
+      <li>List of Deliveries</li>
+    </ol>
+  </mat-card>
+
+  <mat-card class="home-card" (click)="navigateTo('financials')">
+    <div class="card-header">
+      <mat-icon class="card-icon">account_balance</mat-icon>
+      <h2>Financial Sheets</h2>
+    </div>
+    <ol>
+      <li>Invoices</li>
+      <li>Payments and Aging</li>
+      <li>Credit/Debit Memo</li>
+      <li>Overall Sales Order</li>
+    </ol>
+  </mat-card>
+</div>
+
+<router-outlet></router-outlet>
